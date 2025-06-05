@@ -90,3 +90,10 @@ revelar.reveal('.img-port',{
     delay: 500,
     origin: 'right'
 })
+
+revelar.reveal('.paragrafo-projetos', {
+    duration: 1500,
+    distance: '140px',
+    delay: 500,
+    origin: 'right'
+})

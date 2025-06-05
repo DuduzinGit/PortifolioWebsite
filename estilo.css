@@ -256,7 +256,7 @@ section.portifolio .flex{
     width: 100%;
     height: 100%;
     border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.986);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -270,6 +270,13 @@ section.portifolio .flex{
 
 .overlay:hover{ /*Quando o mouse passa por cima da imagem aparece os elementos do overlay*/
     opacity: 1;
+}
+
+section.portifolio .interface p{
+    font-size: 28px;
+    margin: 20px 0;
+    text-align: center;
+    color: rgb(199, 197, 197);
 }
 
 /* ESTILO DO PORTFÓLIO FIM*/

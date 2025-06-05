@@ -10,6 +10,7 @@
 body{
     background-color: black;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 /*Com estes parâmetros , o texto ficará centralizado tanto horizontalmente quanto verticalmente*/
@@ -57,7 +58,7 @@ header a{
     text-decoration: none;
     display: inline-block;
     transition: .1s;
-    margin: 0 10%;
+    /* margin: 0 10%; */
     font-size: 22px;
 }
 
@@ -69,12 +70,12 @@ header nav.menu-desktop a:hover{
 
 header nav ul{
     list-style-type: none;
-    margin-left: 80px;
+    /* margin-left: 80px; */
 }
 
 header nav.menu-desktop ul li{
     display: inline-block;
-    padding: 0 60px;
+    /* padding: 0 60px; */
 }
 
 header .btn-contato{

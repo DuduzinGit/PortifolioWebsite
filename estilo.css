@@ -70,7 +70,7 @@ header nav.menu-desktop a:hover{
 
 header nav ul{
     list-style-type: none;
-    /* margin-left: 80px; */
+    margin-left: 80px;
 }
 
 header nav.menu-desktop ul li{

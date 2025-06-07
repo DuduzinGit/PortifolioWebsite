@@ -16,7 +16,6 @@ body{
 /*Com estes parâmetros , o texto ficará centralizado tanto horizontalmente quanto verticalmente*/
 .interface{
     max-width: 1280px;
-
 }
 
 .flex{
@@ -75,7 +74,7 @@ header nav ul{
 
 header nav.menu-desktop ul li{
     display: inline-block;
-     padding: 0 60px; 
+    padding: 55px; 
 }
 
 header .btn-contato{

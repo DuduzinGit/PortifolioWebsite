@@ -75,7 +75,7 @@ header nav ul{
 
 header nav.menu-desktop ul li{
     display: inline-block;
-    /* padding: 0 60px; */
+     padding: 0 60px; 
 }
 
 header .btn-contato{

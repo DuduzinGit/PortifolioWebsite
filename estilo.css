@@ -391,6 +391,7 @@ footer .line-footer .logo-footer img{
 
     .menu-mobile nav ul{
         text-align: right;
+        display: block;
     }
 
     .menu-mobile nav ul li a{

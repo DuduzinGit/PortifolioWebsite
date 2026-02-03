@@ -1,14 +1,14 @@
 const especialidades = document.querySelector('#especialidades')
 
 especialidades.addEventListener('click', () =>{
-    window.scrollTo({top: 790, left:0, behavior: 'smooth'})
+    window.scrollTo({top: 590, left:0, behavior: 'smooth'})
 })
 
 
 const portifolio = document.querySelector('#portifolio')
 
 portifolio.addEventListener('click', () =>{
-    window.scrollTo({top: 1950, left:0, behavior: 'smooth'})
+    window.scrollTo({top: 1600, left:0, behavior: 'smooth'})
 })
 
 

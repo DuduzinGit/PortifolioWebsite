@@ -37,26 +37,31 @@
 
 
 
-            <div class="btn-abrir-menu" id="btn-menu">
-                <i class="bi bi-list"></i>
-            </div>
+<div class="menu-mobile" id="menu-mobile">
+    <div class="btn-fechar">
+        <i class="bi bi-x-lg"></i> </div>
+    <nav>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#portifolio">Projetos</a></li>
+            <li><a href="https://wa.me/5551984451820">Contato</a></li>
+        </ul>
+    </nav>
+</div>
+        <div class="overlay-menu" id="overlay-menu"></div>
 
-
-            <div class="menu-mobile" id="menu-mobile">
-                <div class="btn-fechar">
-                    <i class="bi bi-x-lg"></i>
+        <header>
+            <div class="interface">
+                <div class="btn-abrir-menu" id="btn-menu">
+                    <i class="bi bi-list"></i>
+                    
                 </div>
-
-                <nav>
-                    <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a id="especialidades_mobile">Especialidades</a></li>
-                        <li><a id="portifolio_mobile">Projetos</a></li>
-                        <li><a href="https://wa.me/5551984451820">Contato</a></li>
-                    </ul>
-                </nav>
-
             </div>
+
+
+
+        </header>
 
 
             <div class="overlay-menu" id="overlay"></div>
@@ -68,29 +73,38 @@
 
     <main>
 
-        <section class="sobre">
-            <div class="interface">
-                <div class="flex">
-
-                    <div class="img-sobre efeito-img-sobre">
-                        <img src="imagens/imagem_ilustrativaNOVA.png" alt="imagem sobre">
+<section class="sobre" id="sobre">
+    <div class="interface">
+        <div class="flex">
+            <div class="img-sobre efeito-img-sobre">
+                <div class="window-frame">
+                    <div class="control-dots">
+                        <span></span><span></span><span></span>
                     </div>
-
-                    <div class="txt-sobre efeito-txt-sobre">
-                        <h2>MUITO PRAZER, <span>SOU EDUARDO PAGANI.</span></h2>
-                        <p>Sou um jovem desenvolvedor iniciando na área da programação, estou sempre buscando aprender e melhorar minhas habilidades, então busco por oportunidades de trabalho ou estágio para aprender e crescer.</p>
-                        <p>Pois bem, este é meu portifólio para apresentar um pouco sobre mim, e sobre minhas habilidades de programação.</p>
-                        
-                        <div class="btn-social efeito-btn-social">
-                            <a href="https://www.instagram.com/epaganidev"><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="https://wa.me/5551984451820"><button><i class="bi bi-whatsapp"></i></button></a>
-                            <a href="https://www.linkedin.com/in/eduardo-petitemberte-964076312/"><button><i class="bi bi-linkedin"></i></button></a>
-                        </div>
-
-                    </div>
+                    <img src="imagens/imagem_ilustrativaNOVA.png" alt="Eduardo Pagani">
                 </div>
             </div>
-        </section><!--sobre FIM-->
+
+            <div class="txt-sobre efeito-txt-sobre">
+                <div class="code-label">&lt;developer&gt;</div>
+                <h2>MUITO PRAZER, <br><span>SOU EDUARDO PAGANI.</span></h2>
+                <p><p>Sou desenvolvedor FullStack Com foco em Desenvolvimento Web, busco constantemente o equilíbrio entre funcionalidade e design moderno para criar soluções que realmente conectam pessoas e ideias.</p></p>
+                
+                                <div class="btn-social efeito-btn-social">
+                    <a href="https://www.instagram.com/epaganidev" target="_blank">
+                        <button><i class="bi bi-instagram"></i></button>
+                    </a>
+                    <a href="https://wa.me/5551984451820" target="_blank">
+                        <button><i class="bi bi-whatsapp"></i></button>
+                    </a>
+                    <a href="https://www.linkedin.com/in/eduardo-petitemberte-964076312/" target="_blank">
+                        <button><i class="bi bi-linkedin"></i></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--sobre FIM-->
 
 
         <section class="especialidades">
@@ -140,51 +154,56 @@
         </section><!--especialidades FIM-->
 
 
-        <section class="portifolio">
-            <div class="interface">
-                <h2 class="titulo">MEUS <span>PROJETOS.</span></h2>
-                <p class="paragrafo-projetos">Esta área do meu portifólio ficará meus projetos pessoais, ou realizados trabalhando para alguma empresa, quando novos projetos forem feitos atualizarei esta parte do portifólio.</p>
-                <div class="flex">
-                    <div class="img-port" style="background-image: url(imagens/imagem_portfolio.png);">
-                        <div class="overlay">Projeto Em Andamento...</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(imagens/imagem_portfolio.png);">
-                        <div class="overlay">Projeto Em Andamento...</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(imagens/imagem_portfolio.png);">
-                        <div class="overlay">Projeto Em Andamento...</div>
-                    </div>
+     <section class="portifolio" id="portifolio">
+    <div class="interface">
+        <h2 class="titulo">MEUS <span>PROJETOS.</span></h2>
+        <div class="flex">
+
+            <div class="img-port em-andamento">
+                <div class="overlay">
+                    <span>Projeto em andamento...</span>
                 </div>
             </div>
-        </section><!--portifolio FIM-->
+
+                        <div class="img-port em-andamento">
+                <div class="overlay">
+                    <span>Projeto em andamento...</span>
+                </div>
+            </div>
+
+            <div class="img-port em-andamento">
+                <div class="overlay">
+                    <span>Projeto em andamento...</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section><!--portifolio FIM-->
     </main>
 
 
     <footer>
-        <div class="interface">
-            <div class="line-footer">
-                <div class="flex">
-
+    <div class="interface">
+        <div class="line-footer">
+            <div class="flex">
                 <div class="logo-footer">
                     <img src="imagens/logo_portifolio-Photoroom.png" alt="logo-footer">
                 </div>
 
                 <div class="btn-social">
-                    <a href="https://www.instagram.com/epaganidev"><button><i class="bi bi-instagram"></i></button></a>
-                    <a href="https://wa.me/5551984451820"><button><i class="bi bi-whatsapp"></i></button></a>
-                    <a href="https://www.linkedin.com/in/eduardo-petitemberte-964076312/"><button><i class="bi bi-linkedin"></i></button></a>
+                    <a href="https://www.instagram.com/epaganidev" target="_blank"><button><i class="bi bi-instagram"></i></button></a>
+                    <a href="https://wa.me/5551984451820" target="_blank"><button><i class="bi bi-whatsapp"></i></button></a>
+                    <a href="https://www.linkedin.com/in/eduardo-petitemberte-964076312/" target="_blank"><button><i class="bi bi-linkedin"></i></button></a>
                 </div>
-            </div>
 
-            </div><!--line footer fim-->
-
-            <div class="line-footer borda">
-                <p><i class="bi bi-envelope"></i> <a href="mailto:petitemberteeduardo@gmail.com">petitemberteeduardo@gmail.com</a></p> <!--o 'mailto serve para direcionar o usuario para o email desejado'-->
-            </div><!--line footer fim-->
+                <div class="contato-footer">
+                    <p><i class="bi bi-envelope"></i> <a href="mailto:petitemberteeduardo@gmail.com">petitemberteeduardo@gmail.com</a></p>
+                </div>
+            </div></div><div class="line-footer borda">
         </div>
-    </footer>
-
-
+    </div>
+</footer>
 
 
 

@@ -11,6 +11,7 @@ body{
     background-color: black;
     height: 100vh;
     overflow-x: hidden;
+    padding-top: 160px;
 }
 
 /*Com estes parâmetros , o texto ficará centralizado tanto horizontalmente quanto verticalmente*/
@@ -23,11 +24,12 @@ body{
 }
 
 .btn-contato button{
-    padding: 10px 30px;
+    padding: 13px 30px;
     background-color: blueviolet;
-    font-size: 15px;
+    color: #020202;
+    font-size: 17px;
     border: 0;
-    border-radius: 30px;
+    border-radius: 15px;
     cursor: pointer;
     transition: .2s;
 }
@@ -36,53 +38,90 @@ body{
     box-shadow: 0px 0px 8px rgb(95, 1, 99);
     transform: scale(1.07);
 }
+
+.btn-contato button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-contato button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+}
+
+.btn-contato button:hover::before {
+    left: 100%;
+}
 /* ESTILO GERAL FIM */
 
 
 
 /* ESTILO CABEÇARIO */
-
-header{
-    padding: 40px 2%;
+header {
+    padding: 8px 2%;
+    position: fixed; /* Fixa o menu no topo ao rolar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto transparente */
+    backdrop-filter: blur(10px); /* Efeito de desfoque (vidro) */
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2); /* Linha roxa sutil */
 }
 
-header > .interface{
+header > .interface {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
-header a{
-    color: #7d7d7d;
-    text-decoration: none;
-    display: inline-block;
-    transition: .1s;
-    margin: 0 10%;
-    font-size: 22px;
-}
-
-/* Função para indicar que quando o usuário passar o mouse por cima acontece algo */
-header nav.menu-desktop a:hover{
-    color: white;
-    transform: scale(1.07);
-}
-
-header nav ul{
+header nav.menu-desktop ul {
     list-style-type: none;
-    margin-left: 80px;
+    margin-left: 120px; /* Ajustado para centralizar melhor */
 }
 
-header nav.menu-desktop ul li{
+header nav.menu-desktop ul li {
     display: inline-block;
-    padding: 55px; 
+    padding: 0 45px; /* Reduzi o padding exagerado */
 }
 
-header .btn-contato{
-    padding-left: 10%;
+header nav.menu-desktop a {
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif; /* Sugiro trocar o fantasy por Poppins */
+    position: relative;
+    transition: .3s;
 }
 
-header img{
-    padding-right: 70px;
+header nav.menu-desktop a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: blueviolet;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s ease-in-out;
+}
+
+header nav.menu-desktop a:hover {
+    color: white;
+}
+
+header nav.menu-desktop a:hover::after {
+    width: 100%;
 }
 
 /* ESTILO CABEÇARIO FIM */
@@ -93,66 +132,125 @@ header img{
 
 /* ESTILO DAS ESPECIALIDADES */
 
-section.especialidades{
-    padding: 40px 6%;
+/* =========================================
+   SEÇÃO ESPECIALIDADES - VERSÃO DEFINITIVA
+   ========================================= */
+
+section.especialidades {
+    padding: 100px 4%;
+    position: relative;
+    background-color: #000; /* Fundo base */
+    overflow: hidden;
 }
 
-section.especialidades .flex{
-    gap: 60px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+/* O Efeito Vivo (Nebulosa Animada) */
+section.especialidades::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    /* Gradiente roxo suave que simula luz */
+    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.15) 0%, transparent 40%);
+    animation: rotateLight 12s linear infinite;
+    z-index: 0; /* Fica no fundo de tudo */
+    pointer-events: none;
 }
 
-.especialidades .especialidades-box{
-    color: rgb(199, 197, 197);
-    padding: 30px;
-    margin-top: 45px;
-    border-radius: 10px;
-    transition: 0.7s;
-    flex: 0 1 45%;
-    box-sizing: border-box;
+@keyframes rotateLight {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-h2.titulo{
-    color: rgb(199, 197, 197);
-    font-size: 36px;
+/* Título - Garantindo Visibilidade Máxima */
+section.especialidades .titulo {
+    position: relative;
+    z-index: 2; /* Fica à frente da nebulosa */
     text-align: center;
-    margin-top: 70px;
+    margin-bottom: 80px;
 }
 
-h2.titulo span{
+/* CORREÇÃO DO TÍTULO ESPECIALIDADES */
+section.especialidades h2 {
+    color: #ffffff !important; /* Força o branco puro */
+    font-size: 38px;
+    text-align: center;
+    position: relative;
+    z-index: 10; /* Garante que fique na frente de qualquer fundo */
+    opacity: 1 !important; /* Força a visibilidade caso o ScrollReveal falhe */
+    visibility: visible !important; /* Força a visibilidade */
+}
+
+section.especialidades h2 span {
+    color: blueviolet !important; /* Roxo vibrante */
+    display: inline-block;
+    text-shadow: 0 0 15px rgba(138, 43, 226, 0.6); /* Efeito de brilho roxo */
+}
+
+/* Container dos Cards */
+section.especialidades .flex {
+    display: flex;
+    gap: 40px; /* Espaço entre os cards */
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2; /* Fica à frente da nebulosa */
+}
+
+/* Estilo dos Boxes (Cards) */
+.especialidades .especialidades-box {
+    flex: 1 1 300px;
+    max-width: 380px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(15, 15, 15, 0.8); /* Fundo preto transparente */
+    border: 1px solid rgba(138, 43, 226, 0.2);
+    backdrop-filter: blur(10px); /* Efeito vidro fosco */
+    text-align: center;
+    transition: 0.4s ease-in-out;
+}
+
+/* Ícones e Textos dentro do Card */
+.especialidades .especialidades-box i {
+    font-size: 60px;
     color: blueviolet;
+    display: block;
+    margin-bottom: 20px;
 }
 
-.especialidades .especialidades-box{
-    color: rgb(199, 197, 197);
-    padding: 30px;
-    margin-top: 45px;
-    border-radius: 10px;
-    transition: 0.7s;
+.especialidades .especialidades-box h3 {
+    color: #6e6c6c;
+    font-size: 26px;
+    margin-bottom: 15px;
 }
 
-.especialidades .especialidades-box:hover{
-    transform: scale(1.07);
-    box-shadow: 0 0 8px white;
+.especialidades .especialidades-box p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-.especialidades .especialidades-box i{
-    color: blueviolet;
-    font-size: 56px;
+/* Efeito de Hover (Quando passa o mouse) */
+.especialidades .especialidades-box:hover {
+    transform: translateY(-10px); /* O card sobe levemente */
+    border-color: blueviolet;
+    background: rgba(138, 43, 226, 0.05); /* Brilho interno roxo */
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
 }
 
-.especialidades .especialidades-box h3{
-    font-size: 28px;
-    color: #7d7d7d;
-    margin: 15px 0;
+/* Linha decorativa no topo da seção */
+section.especialidades::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, blueviolet, transparent);
+    z-index: 3;
 }
-
-.especialidades .especialidades-box p{
-    font-size: 20px;
-}
-
 /* ESTILO DAS ESPECIALIDADES FIM*/
 
 
@@ -184,10 +282,13 @@ section.sobre .flex{
     display: block; /*coloca na  linha de baixo e não em linha como no in-line*/
 }
 
-.sobre .txt-sobre p{
-    font-size: 28px;
+.sobre .txt-sobre p {
+    font-size: 27px; /* Reduzindo um pouco para ficar mais elegante */
+    line-height: 1.6; /* Melhorando o espaçamento entre linhas */
+    max-width: 750px; /* Limita a largura para o texto não ficar longo demais horizontalmente */
     margin: 20px 0;
-    text-align: justify;
+    color: #bdbdbd;
+    text-align: left; /* Alinhamento à esquerda costuma ficar mais moderno em textos curtos */
 }
 
 .sobre .img-sobre img{
@@ -196,21 +297,81 @@ section.sobre .flex{
     box-shadow: 0 0 18px rgba(255, 255, 255, 0.192);
 }
 
-.btn-social button{
+.btn-social {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start; /* Alinha os botões à esquerda */
+    margin-top: 20px;
+}
+
+.btn-social button {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 50%; /* Garante que fiquem redondos */
     border: none;
     background-color: blueviolet;
+    color: white;
     font-size: 25px;
     cursor: pointer;
-    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: .2s;
 }
 
-.btn-social button:hover{
-    transform: scale(1.07);
-    box-shadow: 0 0 8px rgb(108, 14, 197);
+.btn-social button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px blueviolet;
+}
+
+/* Remove qualquer ícone extra que possa ter vindo de estilos anteriores */
+.btn-social button i {
+    margin: 0; 
+    padding: 0;
+}
+
+/* Reduzindo e estilizando a foto */
+.img-sobre .window-frame {
+    width: 285px; /* Foto bem menor que a original */
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid rgba(138, 43, 226, 0.4);
+    box-shadow: 20px 20px 0px blueviolet; /* Sombra sólida para preencher espaço */
+}
+
+.control-dots {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.control-dots span {
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.img-sobre img {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Efeitos no Texto */
+.code-label {
+    color: blueviolet;
+    font-family: monospace;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.sobre .txt-sobre h2 span {
+    background: linear-gradient(90deg, blueviolet, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Efeito de texto gradiente */
+    display: inline-block;
 }
 
 /* ESTILO DO SOBRE FIM */
@@ -219,64 +380,139 @@ section.sobre .flex{
 
 /* ESTILO DO PORTFÓLIO*/
 
-section.portifolio{
-    padding: 40px 4%;
-    box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.089);
-    margin-top: 70px;
+/* SEÇÃO PORTFÓLIO */
+section.portifolio {
+    padding: 100px 4%;
+    background-color: #000;
 }
 
-
-section.portifolio .flex{
-    justify-content: space-around;
+section.portifolio .flex {
+    justify-content: center;
+    gap: 60px; /* Mais espaço entre os projetos */
+    margin-top: 60px;
 }
 
-.img-port{
-    width: 290px;
-    height: 460px;
-    background-color: aliceblue;
-    margin-top: 50px;
-    background-size: cover; /*Essa proporiedade é um otimo jeito de centralizar e ajeitar uma imagem dentro de algo*/
-    background-position: 100% 0%;
-    transition: 8s;
-    border-radius: 30px;
+.img-port {
+    width: 340px; /* Aumentei um pouco o tamanho */
+    height: 480px;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 25px;
     cursor: pointer;
     position: relative;
+    transition: 8s ease-in-out, transform 0.4s ease; /* Transição longa para o scroll e curta para o movimento */
+    border: 1px solid rgba(138, 43, 226, 0.2);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-
-.img-port:hover{ /*Quando o mouse passa por cima da imagem rola a imagem ate o final*/
-    background-position: 100% 100%;
+/* Efeito de inclinação e brilho no card ao passar o mouse */
+.img-port:hover {
+    background-position: bottom center;
+    transform: translateY(-15px) scale(1.02);
+    border-color: blueviolet;
+    box-shadow: 0 20px 50px rgba(138, 43, 226, 0.3);
 }
 
-
-.overlay{
+/* Overlay Estilizado */
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.986);
-    cursor: pointer;
+    background: linear-gradient(to top, rgba(138, 43, 226, 0.9), transparent);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    color: aliceblue;
     opacity: 0;
-    transition: .5s;
+    transition: 0.5s;
+    color: #fff;
 }
 
-
-.overlay:hover{ /*Quando o mouse passa por cima da imagem aparece os elementos do overlay*/
+.img-port:hover .overlay {
     opacity: 1;
 }
 
-section.portifolio .interface p{
-    font-size: 28px;
-    margin: 20px 0;
+.overlay i {
+    font-size: 50px;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: 0.5s;
+}
+
+.overlay span {
+    font-weight: 600;
+    letter-spacing: 1px;
+    transform: translateY(20px);
+    transition: 0.5s;
+}
+
+.img-port:hover .overlay i, 
+.img-port:hover .overlay span {
+    transform: translateY(0);
+}
+
+/* Título do Portfólio (Reaproveitando o estilo das especialidades) */
+section.portifolio h2.titulo {
+    color: #fff;
+    font-size: 38px;
     text-align: center;
-    color: rgb(199, 197, 197);
+}
+
+section.portifolio h2.titulo span {
+    color: blueviolet;
+    text-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
+/* Estilo para o Projeto em Andamento */
+.img-port.em-andamento {
+    background-color: #0a0a0a; /* Fundo preto sólido */
+    background-image: none !important; /* Remove qualquer imagem */
+    border: 1px dashed rgba(138, 43, 226, 0.4); /* Borda tracejada para parecer 'em construção' */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efeito de brilho pulsante para não ficar 'morto' */
+.img-port.em-andamento::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+    animation: pulseBrilho 3s infinite ease-in-out;
+}
+
+@keyframes pulseBrilho {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Ajuste no texto do Overlay para este card */
+.img-port.em-andamento .overlay {
+    opacity: 1; /* Deixa o texto sempre visível ou você pode manter 0 para aparecer só no hover */
+    background: transparent; /* Remove o fundo preto do overlay já que o card já é preto */
+}
+
+.img-port.em-andamento .overlay span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: blueviolet;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Remove o efeito de scroll de imagem apenas para este card */
+.img-port.em-andamento:hover {
+    background-position: center; 
+    transform: scale(1.02);
+    border-style: solid; /* A borda fica sólida no hover */
 }
 
 /* ESTILO DO PORTFÓLIO FIM*/
@@ -284,41 +520,90 @@ section.portifolio .interface p{
 
 /* ESTILO DO RODAPÉ */
 
-footer{
-    padding: 40px 4%;
+/* ESTILO DO RODAPÉ */
+footer {
+    padding: 80px 4% 40px 4%;
+    background-color: #000;
+    border-top: 2px solid rgba(138, 43, 226, 0.1); /* Linha roxa bem sutil no topo */
 }
 
-footer .flex{
+footer .flex {
     justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
-
-footer .line-footer{
-    padding: 20px 0;
+/* Logo no Rodapé */
+footer .logo-footer img {
+    width: 150px; /* Ajuste conforme o tamanho da sua logo */
+    filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.3));
+    transition: 0.3s;
 }
 
-footer .line-footer p i{
-    color: blueviolet;
-    font-size: 22px;
+footer .logo-footer img:hover {
+    transform: scale(1.05);
 }
 
-.borda{
-    border-top: 4px solid blueviolet;
-}
-
-
-
-footer .line-footer p a{
-    color: white;
-}
-
-
-footer .line-footer .btn-social button{
-    margin-top: 45px;
-}
-
-footer .line-footer .logo-footer img{
+/* Área de Contato e Links */
+footer .line-footer p {
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .line-footer p i {
+    color: blueviolet;
+    font-size: 24px;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+footer .line-footer p a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+footer .line-footer p a:hover {
+    color: blueviolet;
+}
+
+/* Botões Sociais do Rodapé */
+footer .btn-social {
+    margin-top: 0; /* Alinhando com os outros itens */
+}
+
+footer .btn-social button {
+    background-color: transparent;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+footer .btn-social button:hover {
+    background-color: blueviolet;
+    color: #fff;
+    box-shadow: 0 0 20px blueviolet;
+    transform: translateY(-5px);
+}
+
+/* Barra de Copyright (A parte final) */
+.borda {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    text-align: center;
+}
+
+.borda p {
+    color: #5c5c5c;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 /* ESTILO DO RODAPÉ FIM */
@@ -331,190 +616,113 @@ footer .line-footer .logo-footer img{
 
 
 
+
 /*RESPONSIVIDADE DO SITE*/
 
-@media screen and (max-width: 1020px){
+/* --- TUDO DAQUI PARA BAIXO É APENAS PARA CELULAR --- */
 
-    /* CLASSES GERAIS */
-    .body{
-        overflow-x: hidden;
+@media screen and (max-width: 1020px) {
+    
+    /* 1. Reset de Estrutura: Força o empilhamento sem quebrar o Desktop */
+    .flex {
+        flex-direction: column !important;
+        text-align: center;
     }
 
-    .flex{
-        flex-direction: column;
+    /* 2. Cabeçalho e Menu Mobile */
+    header .menu-desktop, 
+    header .btn-contato {
+        display: none !important; /* Esconde elementos do PC */
     }
 
-    .topo-do-site .flex{
-        flex-direction: column-reverse;
+    .btn-abrir-menu {
+        display: block !important; /* Mostra o ícone do menu apenas aqui */
     }
 
-    h2.titulo{
-        font-size: 30px;
+    /* 3. Ajuste de Espaçamento do Topo */
+    body {
+        padding-top: 80px;
     }
 
-
-
-    /* CABEÇALHO */
-    .menu-desktop, .btn-contato{
-        display: none;
-    }
-
-
-    /* ESTILO DO MENU MOBILE */
-
-    .btn-abrir-menu i{
-        color: blueviolet;
-        font-size: 45px;
-    }
-
-
-    .menu-mobile{
-        background-color: rgb(17, 16, 16);
+    /* 4. Estilização do Menu Lateral (Aparece apenas no celular) */
+    .menu-mobile {
+        width: 0;
         height: 100vh;
         position: fixed;
         top: 0;
         right: 0;
-        z-index: 99999;
-        width: 0%;
+        background-color: #050505;
+        z-index: 10005;
         overflow: hidden;
         transition: .5s;
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
 
-    .menu-mobile.abrir-menu{
-        width: 70%;
+    .menu-mobile.abrir-menu {
+        width: 70%; /* Quando aberto pelo JS */
     }
 
-    .menu-mobile.abrir-menu ~ .overlay-menu{
-        display: block;
-    }
-
-    .menu-mobile nav ul{
-        text-align: right;
-        display: block;
-    }
-
-    .menu-mobile nav ul li a{
-        color: white;
-        font-size: 20px;
-        font-weight: 300;
-        padding: 20px 4%;
-        display: block;
-    }
-
-    .menu-mobile nav ul li a:hover{
-        background-color: blueviolet;
-        color: black;
-    }
-
-    .menu-mobile .btn-fechar{
-        padding: 20px 4%;
-    }
-
-    .menu-mobile .btn-fechar i{
-        color: blueviolet;
-        font-size: 34px;
-    }
-
-
-    .overlay-menu{
-        background-color: rgba(0, 0, 0, 0.603);
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 88888;
-        display: none;
-    }
-
-    /* ESTILO DO MENU MOBILE FIM */
-
-
-
-    /* TOPO DO SITE */
-    section.topo-do-site .flex{
-        gap: 70px;
-    }
-
-    section.topo-do-site{
-        padding: 20px 8%;
-    }
-
-    .topo-do-site h1{
-        font-size: 32px;
-    }
-
-    .topo-do-site .img-topo-site img{
-        width: 90%;
-    }
-
-
-    /* ESPECIALIDADES */
-    section.especialidades{
-        padding: 40px 8%;
-    }
-
-    .especialidades .especialidades-box{
-    color: rgb(199, 197, 197);
-    padding: 30px;
-    margin-top: 45px;
-    border-radius: 10px;
-    transition: 0.7s;
-    flex: 0 1 45%;
-    box-sizing: border-box;
-    }
-
-
-    /* SOBRE */
-    section.sobre{
-        padding: 80px 8%;
-    }
-
-    .sobre .txt-sobre h2{
-        font-size: 36px;
-        text-align: center;
-    }
-
-    .sobre .txt-sobre p{
-        font-size: 26px;
-        margin: 20px 0;
-        text-align: justify;
-    }
-
-    .btn-social{
-        text-align: center;
-    }
-
-    .img-sobre img{
-        width: 90%;
-    }
-
-    .img-sobre{
-        padding-left: 25px;
-    }
-
-
-    /* PORTIFOLIO */
-    section.portifolio{
-        padding: 80px 8%;
-    }
-
-    .img-port{
-        width: 100%;
-        max-width: 290px;
-        margin: 0 auto;
-        margin-top: 50px;
-    }
-
-
-    /* RODAPÉ */
-    footer .flex{
+    /* 5. Estilização do UL e Links dentro do Menu Lateral */
+    .menu-mobile nav ul {
+        list-style-type: none;
+        display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 40px;
+    }
+
+    .menu-mobile nav ul li {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .menu-mobile nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 20px;
+        display: block;
+        border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+        transition: 0.3s;
+    }
+
+    .menu-mobile nav ul li a:hover {
+        background-color: rgba(138, 43, 226, 0.2);
+        color: blueviolet;
+    }
+
+    /* Botão fechar (X) */
+    .btn-fechar {
+        padding: 20px;
+        text-align: right;
+        color: blueviolet;
+        font-size: 30px;
+    }
+
+    /* 6. Ajustes de Seções para Celular */
+    section.especialidades, 
+    section.portifolio {
+        padding: 60px 4%;
+    }
+
+    .especialidades-box {
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .img-port {
+        width: 100% !important;
+        max-width: 350px;
+        height: 400px;
+        margin: 0 auto 30px auto;
+    }
+
+    /* Rodapé */
+    footer .flex {
+        gap: 30px;
     }
 }
-
 
 /*RESPONSIVIDADE DO SITE FIM*/
 
